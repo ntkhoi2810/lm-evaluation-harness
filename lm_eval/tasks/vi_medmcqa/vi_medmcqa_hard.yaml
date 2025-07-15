@@ -1,7 +1,7 @@
 # Ví dụ cho task multiple choice
-task: vi_medmcqa
+task: vi_medmcqa_hard
 dataset_path: ntkhoi/vi-medmcqa-5k  # Đường dẫn HF dataset
-dataset_name: all  # Hoặc subset name nếu có
+dataset_name: hard  # Hoặc subset name nếu có
 output_type: multiple_choice
 training_split: null
 validation_split: null
