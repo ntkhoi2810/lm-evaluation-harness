@@ -1,0 +1,33 @@
+# Ví dụ cho task multiple choice
+task: vi_medmcqa
+dataset_path: ntkhoi/vi-medmcqa-5k  # Đường dẫn HF dataset
+dataset_name: all  # Hoặc subset name nếu có
+output_type: multiple_choice
+training_split: null
+validation_split: null
+test_split: test
+
+num_fewshot: 3  # Số lượng examples trong context
+
+doc_to_text: |
+  Câu hỏi: {{question}}
+  A. {{option_a}}
+  B. {{option_b}}
+  C. {{option_c}}
+  D. {{option_d}}
+  Đáp án:
+
+doc_to_target: "{{answer}}"
+doc_to_choice: ["A", "B", "C", "D"]
+
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+
+metadata:
+  version: 1.0
+  description: "Custom evaluation task for your dataset"
